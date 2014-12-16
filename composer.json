@@ -15,6 +15,6 @@
         "yiisoft/yii2-bootstrap": "*"
     },
     "autoload": {
-        "psr-4": {"hal\\makroxyz\\onscrkbd": ""}
+        "psr-4": {"hal\\makroxyz\\onscrkbd\\": ""}
     }
 }
