@@ -118,6 +118,7 @@ var jsKeyboard = {
     {
         //input cursor focus and position during typing
         jsKeyboard.currentElement.setCursorPosition(jsKeyboard.currentElementCursorPosition);
+        jsKeyboard.currentElement.focus();
     },
     write: function(m) {
         var a = jsKeyboard.currentElement.val(),
@@ -139,6 +140,8 @@ var jsKeyboard = {
     enter: function() {
         var t = jsKeyboard.currentElement.val();
         jsKeyboard.currentElement.val(t + "\n");
+        jsKeyboard.currentElementCursorPosition++; //+1 cursor
+        jsKeyboard.updateCursor();
     },
     space: function() {
         var a = jsKeyboard.currentElement.val(),

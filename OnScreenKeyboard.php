@@ -8,6 +8,8 @@ class OnScreenKeyboard extends \yii\base\Widget
 {
     public $firstInputSelector = ':input';
     
+    public $options = [];
+    
 	public function init()
     {
         if (!isset($this->options['id'])) {
