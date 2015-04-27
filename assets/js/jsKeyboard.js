@@ -161,6 +161,14 @@ var jsKeyboard = {
         jsKeyboard.currentElementCursorPosition++; //+1 cursor
         jsKeyboard.updateCursor();
     },
+    writeSymbol: function(m) {
+        var a = jsKeyboard.currentElement.val(),
+            pos = jsKeyboard.currentElementCursorPosition,
+            output = [a.slice(0, pos), m, a.slice(pos)].join('');
+        jsKeyboard.currentElement.val(output);
+        jsKeyboard.currentElementCursorPosition++; //+1 cursor
+        jsKeyboard.updateCursor();
+    },
     show: function() {
         $("#keyboard").animate({ "bottom": "0" }, "slow", function() { });
     },
@@ -234,10 +242,19 @@ var jsKeyboard = {
             { value: 94 },{ value: 42 },{ value: 43 },{ value: 61 },
             { value: "Delete", isChar: "false", onclick: "jsKeyboard.del()", buttonClass: "button button_del", keyClass: "key key_del" },
         // 2nd row
-            { value: 95, buttonClass: "button button_underscore" },{ value: 92 },{ value: 124 },{ value: 126 },
-            { value: 60 },{ value: 62 },
-            { value: "&euro;", isChar: "false", onclick: "jsKeyboard.writeSpecial('&euro;');" },
-            { value: 163 },{ value: 165 },
+//            { value: 95, buttonClass: "button button_underscore" },{ value: 92 },{ value: 124 },{ value: 126 },
+//            { value: 60 },{ value: 62 },
+//            { value: "&euro;", isChar: "false", onclick: "jsKeyboard.writeSpecial('&euro;');" },
+//            { value: 163 },{ value: 165 },
+//            { value: "Enter", isChar: "false", buttonClass: "button button_enter", onclick: "jsKeyboard.enter();", keyClass: "key key_enter" },
+            { value: 95, buttonClass: "button button_underscore" },{ value: 92 },
+            { value: "&agrave;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&agrave;');" },
+            { value: "&egrave;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&egrave;');" },
+            { value: "&eacute;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&eacute;');" },
+            { value: "&igrave;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&igrave;');" },
+            { value: "&ograve;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&ograve;');" },
+            { value: "&ugrave;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&ugrave;');" },
+            { value: "&euro;", isChar: "false", onclick: "jsKeyboard.writeSymbol('&euro;');" },
             { value: "Enter", isChar: "false", buttonClass: "button button_enter", onclick: "jsKeyboard.enter();", keyClass: "key key_enter" },
         // 3rd row
             // { value: "ABC", isChar: "false", buttonClass: "button button_capitalletterleft", onclick: "jsKeyboard.changeToCapitalLetter();", keyClass: "key key_capitalletterleft" },
